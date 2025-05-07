@@ -1,4 +1,5 @@
 // src/app/layout.tsx
+// mainタグのパディングをレスポンシブ対応
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -20,11 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      {/* ↓ この body タグの className に bg-[#98fb98] が含まれているか確認してください */}
       <body className={`${inter.className} flex flex-col min-h-screen bg-[#98fb98]`}>
-        <Header />
-        {/* main タグなど、他の要素に不透明な背景色が設定されていると body の背景は見えなくなります */}
-        <main className="flex-grow container mx-auto px-6 py-8">
+        <Header /> {/* Header.tsx が修正されていれば、ここでレスポンシブヘッダーが適用される */}
+        {/* ↓ main タグの左右パディングを調整: スマホではpx-4、sm以上の画面でpx-6に */}
+        <main className="flex-grow container mx-auto px-4 sm:px-6 py-8">
           {children}
         </main>
         <Footer />

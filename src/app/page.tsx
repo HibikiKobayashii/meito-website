@@ -1,4 +1,4 @@
-import Image from 'next/image'; // 画像を使用する場合
+
 import Link from 'next/link';
 
 export default function HomePage() {
